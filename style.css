@@ -16,7 +16,7 @@
 
   --sidebar-horizontal-padding: 0.2in;
 
-  /* XXX: using px for very good precision control */
+  
   --decorator-outer-offset-top: 10px;
   --decorator-outer-offset-left: -5.5px;
   --decorator-border-width: 1px;
@@ -72,7 +72,7 @@ li{
 
 #sidebar{
   float: right;
-  position: relative; /* for disclaimer */
+  position: relative; 
   width: var(--sidebar-width);
   height: 100%;
   padding: 0.6in var(--sidebar-horizontal-padding);
@@ -80,9 +80,7 @@ li{
   font-size: 8.5pt;
 }
 
-/* main */
 
-/** big title **/
 #title, h1, h2{
   text-transform: uppercase;
 }
@@ -109,7 +107,7 @@ li{
   font-size: 8pt;
 }
 
-/*** categorial blocks ***/
+
 
 .main-block{
   margin-top: 0.1in;
@@ -118,7 +116,7 @@ li{
 #main h2{
   position: relative;
   top: var(--row-blocks-padding-top);
-  /* XXX: 0.5px for aligning fx printing */
+
   left: calc((var(--date-block-width) + var(--decorator-horizontal-margin)));
   font-weight: 400;
   font-size: 11pt;
@@ -126,20 +124,18 @@ li{
 }
 
 #main h2 > i{
-  /* use absolute position to prevent icon's width from misaligning title */
-  /* assigning a fixed width here is no better due to needing to align decorator
-     line too */
+ 
   position: absolute;
   left: var(--main-blocks-title-icon-offset-left);
-  z-index: 1; /* over decorator line */
+  z-index: 1;
   color: #444;
 }
 
-#main h2::after{ /* extends the decorator line */
+#main h2::after{
   height: calc(var(--row-blocks-padding-top) * 2);
   position: relative;
   top: calc(-1 * var(--row-blocks-padding-top));
-  /* XXX: 0.5px for aligning fx printing */
+  
   left: calc(-1 * var(--decorator-horizontal-margin));
   display: block;
   border-left: var(--decorator-border);
@@ -149,7 +145,7 @@ li{
   content: ' ';
 }
 
-/**** minor tweaks on the icon fonts ****/
+
 #main h2 > .fa-graduation-cap{
   left: calc(var(--main-blocks-title-icon-offset-left) - 2pt);
   top: 2pt;
@@ -163,7 +159,7 @@ li{
   top: 1.5pt;
 }
 
-/**** individual row blocks (date - decorator - details) ****/
+
 
 .blocks{
   display: flex;
@@ -205,16 +201,6 @@ li{
   min-height: 100%;
   border-left: var(--decorator-border);
 }
-
-/*
- * XXX: Use two filled circles to achieve the circle-with-white-border effect.
- * The normal technique of only using one pseudo element and
- * border: 1px solid white; style makes firefox erroneously either:
- * 1) overflows the grayshade background (if no background-clip is set), or
- * 2) shows decorator line which should've been masked by the white border
- *
- */
-
 .decorator::before{
   position: absolute;
   top: var(--decorator-outer-offset-top);
@@ -226,7 +212,6 @@ li{
   border-radius: calc(var(--decorator-outer-dim) / 2);
   background-color: #fff;
 }
-
 .decorator::after{
   position: absolute;
   top: calc(var(--decorator-outer-offset-top) + var(--decorator-border-width));
@@ -239,16 +224,13 @@ li{
   background-color: #555;
 }
 
-.blocks:last-child .decorator{ /* slightly shortens it */
+.blocks:last-child .decorator{
   margin-bottom: 0.25in;
 }
-
-/***** fine-tunes on the details block where the real juice is *****/
-
 .details{
   flex: 1 0 0;
   padding-left: var(--decorator-horizontal-margin);
-  padding-top: calc(var(--row-blocks-padding-top) - 0.5pt) !important; /* not sure why but this is needed for better alignment */
+  padding-top: calc(var(--row-blocks-padding-top) - 0.5pt) !important; 
 }
 
 .details header{
@@ -268,8 +250,6 @@ li{
 }
 
 .main-block.concise .details div:not(.concise){
-  /* use padding to work around the fact that margin doesn't affect floated
-     neighboring elements */
   padding: 0.05in 0 0.07in 0;
 }
 
@@ -298,7 +278,7 @@ li{
   content: "\f041";
 }
 
-/***** fine-tunes on the lists... *****/
+
 
 #main ul{
   padding-left: 0.07in;
@@ -309,7 +289,6 @@ li{
   margin: 0 0 0.025in 0;
 }
 
-/****** customize list symbol style ******/
 #main li::before{
   position: relative;
   margin-left: -4.25pt;
@@ -330,10 +309,6 @@ li{
 .details .concise li{
   margin-left: 0 !important;
 }
-
-
-
-/* sidebar */
 
 #sidebar h1{
   font-weight: 400;
@@ -356,7 +331,7 @@ li{
 }
 
 #contact li > i{
-  width: 9pt; /* for text alignment */
+  width: 9pt;
   text-align: right;
 }
 
